@@ -1,0 +1,183 @@
+/* Gantt Graph */
+.ggraph {
+    position: relative;
+    overflow: hidden;
+    background: #F6F6F6;
+    border-radius: 10px;
+}
+
+.ggraph * {
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Arial; margin : 0;
+    padding: 0;
+    margin: 0;
+}
+
+.ggraph li {
+    list-style: none;
+}
+
+/* Gantt Graph Sidebar */
+.ggraph .ggraph-sidebar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 199px;
+    border-right: 1px solid #DDDDDD;
+    z-index: 2;
+}
+
+.ggraph .ggraph-sidebar:before {
+    position: absolute;
+    right: -7px;
+    pointer-events: none;
+    width: 7px;
+    top: 0;
+    bottom: 0;
+    content: "";
+    z-index: 3;
+}
+
+.ggraph .ggraph-sidebar .lbls-group {
+    border-top: 1px solid #DDDDDD;
+}
+
+.ggraph .ggraph-sidebar .lbls-group .lbls {
+    width: 50%;
+    float: left;
+}
+
+.ggraph .ggraph-sidebar .lbls-group .lbls .lbls-serie {
+    border-bottom: 1px solid #E1E1E1;
+}
+
+.ggraph .ggraph-sidebar .lbls-group .lbls strong,
+.ggraph .ggraph-sidebar .lbls-group .lbls-serie strong {
+    display: block;
+    padding: 0 20px;
+    color: #484A4D;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    float: left;
+    line-height: {VALUE_LINE_HEIGHT}px;
+}
+
+/* data section */
+.ggraph-sc {
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-left: 200px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+/* Gantt Graph Section Header */
+header .ggraph-sc-ds,
+header .ggraph-sc-ms {
+    overflow: hidden;
+}
+
+header .ggraph-sc-m {
+    float: left;
+    text-align: center;
+}
+
+header .ggraph-sc-m strong {
+    display: block;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    font-weight: bold;
+    color: #484A4D;
+    line-height: {VALUE_LINE_HEIGHT}px;
+    height: {VALUE_HEIGHT}px;
+}
+
+.ggraph-sc-ds .ggraph-sc-d {
+    float: left;
+    height: {VALUE_HEIGHT}px;
+    width: {VALUE_WIDTH}px;
+}
+
+.ggraph-sc-ds .ggraph-sc-d span {
+    text-indent: 0;
+    text-align: center;
+    font-size: 11px;
+    line-height: {VALUE_LINE_HEIGHT}px;
+}
+
+.ggraph-sc-ds .ggraph-sc-d .today span {
+    color: white;
+}
+
+.ggraph-sc-d span {
+    display: block;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    text-indent: -12000px;
+    font-weight: bold;
+    color: #484A4D;
+}
+
+.ggraph-sc-d.weekend span {
+    background: #E0E0E0;
+}
+
+/* Gantt Graph Section Items */
+.ggraph-sc-item {
+    position: relative;
+}
+
+.ggraph-sc-item .ggraph-sc-ds .ggraph-sc-d {
+    border-top: 1px solid #DDDDDD;
+}
+
+/* Gantt Graph Block */
+.ggraph-sc-blk {
+    background: #268bd2;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    margin: 3px;
+    border-radius: 3px;
+    opacity: .8;
+}
+
+.ggraph-sc-blk-lbl {
+    display: block;
+    color: white;
+    padding: 0px 1px;
+    font-size: 10px;
+    text-align: center;
+    line-height: {VALUE_BLOCK_LINE_HEIGHT}px;
+}
+
+.ggraph-sc-blk.conflict {
+    background: #980000;
+}
+
+/* Gantt Graph Time */
+.ggraph .time {
+    border: 2px solid #1DA7A9;
+    bottom: 0;
+    position: absolute;
+    text-indent: -12000px;
+    top: 0;
+    width: {WIDTH_MARK_TIME}px;
+    background: #FFFFFF;
+    opacity: 0.7;
+    z-index: 1;
+}
+.ggraph .time:before {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #1DA7A9;
+    content: "";
+    left: 5px;
+    position: absolute;
+    top: 0;
+}
