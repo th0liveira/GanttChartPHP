@@ -149,6 +149,7 @@ header .ggraph-sc-m strong {
 
 .ggraph-sc-blk-lbl {
     display: block;
+    cursor: pointer;
     color: white;
     padding: 0px 1px;
     font-size: 10px;
