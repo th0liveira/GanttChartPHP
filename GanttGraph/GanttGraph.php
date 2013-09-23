@@ -499,7 +499,7 @@ class GanttGraph
                     $top    = round( ( $linha * $this->cell_height ) );
                     $left   = round( ( $offset * $this->cell_width ) );
 
-                    $conflict= ( $allocation['conflict'] || $allocation['label'] > 10 ? ' conflict' : null );
+                    $conflict= ( $allocation['conflict'] ? ' conflict' : null );
                     $conflict_title  = "{$allocation['description']}\n";
                     $conflict_title .= ( $allocation['conflict'] ? "{$this->conflict_label}:\n".implode("\n", $allocation['conflict_with']) : null );
 
