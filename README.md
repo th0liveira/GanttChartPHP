@@ -4,11 +4,7 @@ gantt_graph_php
 Class to generate gantt graph.
 
 Use example:
-<<<<<<< HEAD
 ```php
-=======
-```php 
->>>>>>> eca65bd63a4936a75542598d2f471d6b78b02b05
 <?php
 require /* PATH TO */ 'autoloader.php';
 
