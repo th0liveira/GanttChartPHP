@@ -12,7 +12,7 @@ use GanttGraph\GanttGraph;
 
 $array_data = array(
         array (
-                'label' => 'Sub-Activitie',
+                'label' => 'Activitie',
                 'series' => array (
                         array (
                                 'label' => 'Sub-Activitie 1',
