@@ -4,7 +4,7 @@ gantt_graph_php
 Class to generate gantt graph.
 
 Use example:
-
+```php 
 <?php
 require /* PATH TO */ 'autoloader.php';
 
@@ -47,4 +47,4 @@ $array_data = array(
 $gantt_graph = new GanttGraph( 'pt_BR' );
 
 $gantt_graph->setData( $array_data )->render();
-?>
+```
