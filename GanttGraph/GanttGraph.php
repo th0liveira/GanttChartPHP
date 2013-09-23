@@ -394,7 +394,7 @@ class GanttGraph
         $html[] = '<style  type="text/css">';
 
         $line_height = round( $this->cell_height * 0.80 );
-        $width_mark  = round( $this->cell_width * 0.85 );
+        $width_mark  = round( $this->cell_width * 0.90 );
 
         $style  = file_get_contents( __DIR__ ."/../assets/style.css");
         $style  = str_replace( '{VALUE_BLOCK_LINE_HEIGHT}', $line_height, $style );
@@ -527,7 +527,7 @@ class GanttGraph
             $date_last  = new \DateTime( date('Y-m-d', $this->date_last_ts ) );
 
             $offset = ( ( $today->getTimestamp() - $date_first->getTimestamp() ) / $this->seconds );
-            $left   = round( $offset * $this->cell_width ) - round( ( $this->cell_width )  ) + round( $width_mark * 0.45 );
+            $left   = round( $offset * $this->cell_width ) - round( ( $this->cell_width )  ) + round( $width_mark );
 
             if( $today->getTimestamp() > $date_first->getTimestamp() && $today->getTimestamp() < $date_last->getTimestamp() ) {
                 $html[] = "<div class=\"time\" style=\"top: {$this->cell_height}px; left: {$left}px\" datetime=\"{$today->format('Y-m-d')}\"></div>";
