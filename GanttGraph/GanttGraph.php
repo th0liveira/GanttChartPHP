@@ -520,6 +520,7 @@ class GanttGraph
 
             // today
             $today  = new \DateTime();
+            $today->setTime(0, 0, 0);
 
             $date_first = new \DateTime( date('Y-m-d', $this->date_first_ts ) );
             $date_first->setDate($date_first->format('Y'), $date_first->format('m'), $this->day_first);
