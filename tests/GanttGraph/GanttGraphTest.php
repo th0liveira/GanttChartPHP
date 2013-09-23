@@ -135,8 +135,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     public function testRender()
     {
         $instance = new GanttGraph();
-        $instance->setData( $this->loadArrayData() )
-                 ->setDayFirst( 20 );
+        $instance->setData( $this->loadArrayData() );
 
         $if = $instance->render( false );
 
