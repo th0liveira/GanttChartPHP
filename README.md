@@ -48,3 +48,7 @@ $gantt_graph = new GanttGraph( 'pt_BR' );
 
 $gantt_graph->setData( $array_data )->render();
 ```
+
+Result:
+
+![ScreenShot](https://raw.github.com/th0liveira/gantt_graph_php/master/example/screenshot.png)
