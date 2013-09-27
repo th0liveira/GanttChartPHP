@@ -158,7 +158,7 @@ header .ggraph-sc-m strong {
 }
 
 .ggraph-sc-blk.conflict {
-    background: #980000;
+    background: {COLOR_CONFLICT};
 }
 
 /* Gantt Graph Time */
@@ -181,4 +181,47 @@ header .ggraph-sc-m strong {
     left: 5px;
     position: absolute;
     top: 0;
+}
+
+/* Legend */
+.ggraph.ggraph-legend {
+    padding: 10px 10px 0px 10px;
+}
+
+.ggraph-lg-items,
+.ggraph-lg-item {
+    position: relative;
+    float: left;
+}
+
+.ggraph-lg-item.color {
+    background: #E0E0E0;
+    border: 1px solid #DDDDDD;
+    height: {VALUE_HEIGHT}px;
+    width: {VALUE_WIDTH}px;
+}
+
+.ggraph-lg-item.description {
+    padding: 0px 10px;
+    margin: 0px 10px 10px 0px;
+    border: 1px solid #DDDDDD;
+    height: {VALUE_HEIGHT}px;
+}
+
+.ggraph-lg-items .ggraph-lg-item {
+    float: left;
+}
+
+.ggraph-lg-items .ggraph-lg-item span {
+    text-indent: 0;
+    text-align: center;
+    font-size: 11px;
+    line-height: {VALUE_LINE_HEIGHT}px;
+}
+
+.ggraph-lg-item span {
+    display: block;
+    text-indent: -12000px;
+    font-weight: bold;
+    color: #484A4D;
 }

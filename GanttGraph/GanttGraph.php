@@ -37,6 +37,11 @@ class GanttGraph
     private $data;
 
     /**
+     * @var array
+     */
+    private $data_legend;
+
+    /**
      * @var int
      */
     private $date_first_ts;
@@ -77,6 +82,21 @@ class GanttGraph
     private $conflict_label;
 
     /**
+     * @var boolean
+     */
+    private $conflict_detected;
+
+    /**
+     * @var string
+     */
+    private $conflict_color;
+
+    /**
+     * @var string
+     */
+    private $conflict_legend;
+
+    /**
      * Construct
      *
      * @return void
@@ -88,8 +108,12 @@ class GanttGraph
         $this->cell_width   = 25;
         $this->today        = true;
         $this->data         = array();
+        $this->data_legend  = array();
         $this->day_first    = 1;
-        $this->conflict_label = 'Conflict';
+        $this->conflict_label    = 'Conflict';
+        $this->conflict_detected = false;
+        $this->conflict_color    = '#980000';
+        $this->conflict_legend   = 'Conflict Detected';
 
         setlocale(LC_ALL, "{$locale}");
     }
@@ -111,6 +135,20 @@ class GanttGraph
     }
 
     /**
+     * Set Data Legend
+     *
+     * @param $data Array
+     *
+     * @return GanttGraph
+     */
+    public function setDataLegend( Array $data )
+    {
+        $this->data_legend = $data;
+
+        return $this;
+    }
+
+    /**
      * Set Cell Height
      *
      * @param $height int
@@ -124,6 +162,40 @@ class GanttGraph
             return $this;
         } else {
             throw new \Exception('Error, value of cell height not is integer!');
+        }
+    }
+
+    /**
+     * Set Conflict Color
+     *
+     * @param $color string
+     *
+     * @return GanttGraph
+     */
+    public function setConflictColor( $color )
+    {
+        if( preg_match("/#([A-Fa-f0-9]{2}){3}/", $color) ) {
+            $this->conflict_color = $color;
+            return $this;
+        } else {
+            throw new \Exception('Error, value of conflict color not is valid!');
+        }
+    }
+
+    /**
+     * Set Conflict Description Legend
+     *
+     * @param $description string
+     *
+     * @return GanttGraph
+     */
+    public function setConflictDescriptionLegend( $description )
+    {
+        if( is_string( $description ) ) {
+            $this->conflict_legend = $description;
+            return $this;
+        } else {
+            throw new \Exception('Error, value is not valid!');
         }
     }
 
@@ -272,11 +344,16 @@ class GanttGraph
                                     $allocation['conflict_with'][] = $check_allocation['description'];
                                 }
 
-                                $check_allocation['conflict']         = true;
+                                $check_allocation['conflict']  = true;
                                 if( !in_array( $allocation['description'], $check_allocation['conflict_with'] ) ) {
                                     $check_allocation['conflict_with'][]  = $allocation['description'];
                                 }
                             }
+                        }
+
+                        if( $allocation['conflict'] || $check_allocation['conflict']
+                            || $allocation['color'] == $this->conflict_color || $check_allocation['color'] == $this->conflict_color ) {
+                            $this->conflict_detected = true;
                         }
                     }
                 }
@@ -402,6 +479,7 @@ class GanttGraph
         $style  = str_replace( '{VALUE_WIDTH}', $this->cell_width, $style );
         $style  = str_replace( '{VALUE_LINE_HEIGHT}', $this->cell_height, $style );
         $style  = str_replace( '{WIDTH_MARK_TIME}', $width_mark, $style );
+        $style  = str_replace( '{COLOR_CONFLICT}', $this->conflict_color, $style );
 
         $html[] = $style;
 
@@ -544,10 +622,59 @@ class GanttGraph
         // end Gantt Graph
         $html[] = '</div>';
 
+        if( count( $this->data_legend ) ) {
+            $html[] = $this->renderLegend();
+        }
+
         if( $output ) {
             echo implode("\n", $html);
         } else {
             return implode("\n", $html);
         }
+    }
+
+    /**
+     * Render Legend
+     *
+     * @return string
+     */
+    private function renderLegend()
+    {
+        $html   = array();
+        $html[] = '<br>';
+        $html[] = '<div class="ggraph ggraph-legend">';
+        $html[] = '  <div class="ggraph-lg-items">';
+
+        if( $this->conflict_detected ) {
+
+        }
+
+        foreach( $this->data_legend as $item ) {
+            $html[] = '<ul class="ggraph-lg-items">';
+            $html[] = '  <li class="ggraph-lg-item color">';
+            $html[] = "    <span class=\"ggraph-sc-blk\" style=\"background: {$item['color']}; width: 19px; height: 20px;\">&nbsp;</span>";
+            $html[] = '  </li>';
+            $html[] = '  <li class="ggraph-lg-item description">';
+            $html[] = "    <span>{$item['description']}</span>";
+            $html[] = '  </li>';
+            $html[] = '</ul>';
+        }
+
+        if( $this->conflict_detected ) {
+            $html[] = '<ul class="ggraph-lg-items">';
+            $html[] = '  <li class="ggraph-lg-item color">';
+            $html[] = "    <span class=\"ggraph-sc-blk\" style=\"background: {$this->conflict_color}; width: 19px; height: 20px;\">&nbsp;</span>";
+            $html[] = '  </li>';
+            $html[] = '  <li class="ggraph-lg-item description">';
+            $html[] = "    <span>{$this->conflict_legend}</span>";
+            $html[] = '  </li>';
+            $html[] = '</ul>';
+        }
+
+        $html[] = '  </div>';
+        $html[] = '</div>';
+
+        return implode('', $html);
+
     }
 }
