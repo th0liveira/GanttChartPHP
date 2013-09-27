@@ -1,15 +1,15 @@
 <?php
-namespace GanttGraph;
+namespace GanttChart;
 
 /**
- * Class to generate GanttGraph
+ * Class to generate GanttChart
  *
- * @category   GanttGraph
+ * @category   GanttChart
  * @package
  * @author     Thiago H Oliveira <thiago.h.oliv@gmail.com>
  */
 
-class GanttGraph
+class GanttChart
 {
     /**
      * @var int
@@ -123,7 +123,7 @@ class GanttGraph
      *
      * @param $data Array
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setData( Array $data )
     {
@@ -139,7 +139,7 @@ class GanttGraph
      *
      * @param $data Array
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setDataLegend( Array $data )
     {
@@ -153,7 +153,7 @@ class GanttGraph
      *
      * @param $height int
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setCellHeight( $height )
     {
@@ -170,7 +170,7 @@ class GanttGraph
      *
      * @param $color string
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setConflictColor( $color )
     {
@@ -187,7 +187,7 @@ class GanttGraph
      *
      * @param $description string
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setConflictDescriptionLegend( $description )
     {
@@ -204,7 +204,7 @@ class GanttGraph
      *
      * @param $show boolean
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setToday( $show )
     {
@@ -221,7 +221,7 @@ class GanttGraph
      *
      * @param $width int
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setCellWidth( $width )
     {
@@ -238,7 +238,7 @@ class GanttGraph
      *
      * @param $day int
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setDayFirst( $day )
     {
@@ -256,7 +256,7 @@ class GanttGraph
      *
      * @param $txt string
      *
-     * @return GanttGraph
+     * @return GanttChart
      */
     public function setConflictLabel( $txt )
     {
@@ -487,10 +487,10 @@ class GanttGraph
         // End: Load CSS
 
         // start Gantt Graph
-        $html[] = '<div class="ggraph">';
+        $html[] = '<div class="gchart">';
 
         // sidebar
-        $html[] = '<div class="ggraph-sidebar">';
+        $html[] = '<div class="gchart-sidebar">';
         $html[] = '<ul class="lbls-group" style="margin-top: ' . ( ( $this->cell_height * 3 ) + 1) . 'px">';
         foreach($this->blocks as $i => $block) {
             $html[] = '<li class="lbls" style="height: ' . ( count($block['series']) * ($this->cell_height + 1) ) . 'px">';
@@ -511,26 +511,26 @@ class GanttGraph
 
 
         // start data section
-        $html[] = '<div class="ggraph-sc">';
+        $html[] = '<div class="gchart-sc">';
 
         // data header section
         $html[] = '<header>';
 
         // months headers
-        $html[] = '<ul class="ggraph-sc-ms" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
+        $html[] = '<ul class="gchart-sc-ms" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
         foreach($this->calendar_label as $month) {
-            $html[] = '<li class="ggraph-sc-m" style="width: ' . ($this->cell_width * count($month['days']) ) . 'px">';
+            $html[] = '<li class="gchart-sc-m" style="width: ' . ($this->cell_width * count($month['days']) ) . 'px">';
             $html[] = "<strong>{$month['month']}</strong>";
             $html[] = '</li>';
         }
         $html[] = '</ul>';
 
         // days headers
-        $html[] = '<ul class="ggraph-sc-ds" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
+        $html[] = '<ul class="gchart-sc-ds" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
         foreach($this->calendar_label as $month) {
             foreach($month['days'] as $day) {
                 $style  = $day['weekend'] ? 'weekend' : 'today';
-                $html[] = "<li class=\"ggraph-sc-d $style\">";
+                $html[] = "<li class=\"gchart-sc-d $style\">";
                 $html[] = "<span>{$day['day']}</span>";
                 $html[] = '</li>';
             }
@@ -538,11 +538,11 @@ class GanttGraph
         $html[] = '</ul>';
 
         // days headers
-        $html[] = '<ul class="ggraph-sc-ds" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
+        $html[] = '<ul class="gchart-sc-ds" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
         foreach($this->calendar_label as $month) {
             foreach($month['days'] as $day) {
                 $style  = $day['weekend'] ? 'weekend' : 'today';
-                $html[] = "<li class=\"ggraph-sc-d $style\">";
+                $html[] = "<li class=\"gchart-sc-d $style\">";
                 $html[] = "<span>{$day['week_day']}</span>";
                 $html[] = '</li>';
             }
@@ -550,16 +550,16 @@ class GanttGraph
         $html[] = '</ul>';
 
         // items
-        $html[] = '<ul class="ggraph-sc-items" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
+        $html[] = '<ul class="gchart-sc-items" style="width: ' . ( $this->total_days * $this->cell_width ) . 'px">';
         foreach($this->blocks as $block) {
             foreach($block['series'] as $linha => $series) {
-                $html[] = '<li class="ggraph-sc-item">';
+                $html[] = '<li class="gchart-sc-item">';
 
                 // days
-                $html[] = '<ul class="ggraph-sc-ds">';
+                $html[] = '<ul class="gchart-sc-ds">';
                 foreach($this->calendar_days as $day) {
                     $style  = $day['weekend'] ? 'weekend' : 'today';
-                    $html[] = "<li class=\"ggraph-sc-d $style\">";
+                    $html[] = "<li class=\"gchart-sc-d $style\">";
                     $html[] = "<span>&nbsp;</span>";//$day['value'];
                     $html[] = '</li>';
                 }
@@ -583,8 +583,8 @@ class GanttGraph
 
                     $color  =  ( $allocation['color'] && !$conflict ? "background: {$allocation['color']};" : '' );
 
-                    $html[] = "<span title=\"{$conflict_title}\" class=\"ggraph-sc-blk {$conflict}\" style=\"{$color} left: {$left}px; width: {$width}px; height: {$height}px;\">";
-                    $html[] = "<strong class=\"ggraph-sc-blk-lbl\">{$allocation['label']}</strong>";
+                    $html[] = "<span title=\"{$conflict_title}\" class=\"gchart-sc-blk {$conflict}\" style=\"{$color} left: {$left}px; width: {$width}px; height: {$height}px;\">";
+                    $html[] = "<strong class=\"gchart-sc-blk-lbl\">{$allocation['label']}</strong>";
                     $html[] = '</span>';
 
                 }
@@ -642,30 +642,30 @@ class GanttGraph
     {
         $html   = array();
         $html[] = '<br>';
-        $html[] = '<div class="ggraph ggraph-legend">';
-        $html[] = '  <div class="ggraph-lg-items">';
+        $html[] = '<div class="gchart gchart-legend">';
+        $html[] = '  <div class="gchart-lg-items">';
 
         if( $this->conflict_detected ) {
 
         }
 
         foreach( $this->data_legend as $item ) {
-            $html[] = '<ul class="ggraph-lg-items">';
-            $html[] = '  <li class="ggraph-lg-item color">';
-            $html[] = "    <span class=\"ggraph-sc-blk\" style=\"background: {$item['color']}; width: 19px; height: 20px;\">&nbsp;</span>";
+            $html[] = '<ul class="gchart-lg-items">';
+            $html[] = '  <li class="gchart-lg-item color">';
+            $html[] = "    <span class=\"gchart-sc-blk\" style=\"background: {$item['color']}; width: 19px; height: 20px;\">&nbsp;</span>";
             $html[] = '  </li>';
-            $html[] = '  <li class="ggraph-lg-item description">';
+            $html[] = '  <li class="gchart-lg-item description">';
             $html[] = "    <span>{$item['description']}</span>";
             $html[] = '  </li>';
             $html[] = '</ul>';
         }
 
         if( $this->conflict_detected ) {
-            $html[] = '<ul class="ggraph-lg-items">';
-            $html[] = '  <li class="ggraph-lg-item color">';
-            $html[] = "    <span class=\"ggraph-sc-blk\" style=\"background: {$this->conflict_color}; width: 19px; height: 20px;\">&nbsp;</span>";
+            $html[] = '<ul class="gchart-lg-items">';
+            $html[] = '  <li class="gchart-lg-item color">';
+            $html[] = "    <span class=\"gchart-sc-blk\" style=\"background: {$this->conflict_color}; width: 19px; height: 20px;\">&nbsp;</span>";
             $html[] = '  </li>';
-            $html[] = '  <li class="ggraph-lg-item description">';
+            $html[] = '  <li class="gchart-lg-item description">';
             $html[] = "    <span>{$this->conflict_legend}</span>";
             $html[] = '  </li>';
             $html[] = '</ul>';
@@ -674,7 +674,7 @@ class GanttGraph
         $html[] = '  </div>';
         $html[] = '</div>';
 
-        return implode('', $html);
+        return implode("\n", $html);
 
     }
 }

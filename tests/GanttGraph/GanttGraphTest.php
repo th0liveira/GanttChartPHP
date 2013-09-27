@@ -1,9 +1,9 @@
 <?php
-namespace GanttGraph;
+namespace GanttChart;
 
-use GanttGraph\GanttGraph;
+use GanttChart\GanttChart;
 
-class GanttGraphTest extends \PHPUnit_Framework_TestCase
+class GanttChartTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -35,11 +35,11 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetData()
     {
-        $instance = new GanttGraph( 'pt_BR' );
+        $instance = new GanttChart( 'pt_BR' );
 
         $if = $instance->setData( $this->loadArrayData() );
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -47,11 +47,11 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetDataLegend()
     {
-        $instance = new GanttGraph( 'pt_BR' );
+        $instance = new GanttChart( 'pt_BR' );
 
         $if = $instance->setDataLegend( $this->loadArrayDataLegend() );
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -59,12 +59,12 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetDayFirst()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setData( $this->loadArrayData() )
                        ->setDayFirst( 20 );
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -74,7 +74,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setData( $this->loadArrayData() )
                        ->setDayFirst( "value invalid" );
@@ -90,7 +90,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setDayFirst( 10 );
 
@@ -102,11 +102,11 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetCellWidth()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setCellWidth(30);
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -116,7 +116,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setCellWidth( 'invalid_value' );
 
@@ -128,11 +128,11 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetCellHeight()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setCellHeight(30);
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -142,7 +142,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setCellHeight( 'invalid_value' );
 
@@ -154,7 +154,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testRender()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
         $instance->setData( $this->loadArrayData() )
                  ->setDataLegend( $this->loadArrayDataLegend() );
 
@@ -171,7 +171,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testRenderException()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $this->setExpectedException('Exception');
         $instance->render( true );
@@ -182,12 +182,12 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetConflictLabel()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setData( $this->loadArrayData() )
                        ->setConflictLabel('Conflict label value');
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -197,7 +197,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setData( $this->loadArrayData() )
                        ->setConflictLabel( array() );
@@ -210,12 +210,12 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetToday()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setData( $this->loadArrayData() )
                        ->setToday( false );
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -225,7 +225,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setData( $this->loadArrayData() )
                        ->setToday( "value invalid" );
@@ -239,11 +239,11 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetConflictColor()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setConflictColor( '#000000' );
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -253,7 +253,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
        $if = $instance->setConflictColor( '000000' );
 
@@ -266,11 +266,11 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetConflictDescriptionLegend()
     {
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
         $if = $instance->setConflictDescriptionLegend( 'Legend Conflict' );
 
-        $this->assertInstanceOf('GanttGraph\GanttGraph', $if);
+        $this->assertInstanceOf('GanttChart\GanttChart', $if);
     }
 
     /**
@@ -280,7 +280,7 @@ class GanttGraphTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
 
-        $instance = new GanttGraph();
+        $instance = new GanttChart();
 
        $if = $instance->setConflictDescriptionLegend( 1212 );
 

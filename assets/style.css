@@ -1,12 +1,12 @@
-/* Gantt Graph */
-.ggraph {
+/* Gantt Chart */
+.gchart {
     position: relative;
     overflow: hidden;
     background: #F6F6F6;
     border-radius: 10px;
 }
 
-.ggraph * {
+.gchart * {
     font-size: 12px;
     font-weight: normal;
     font-family: Arial; margin : 0;
@@ -14,12 +14,12 @@
     margin: 0;
 }
 
-.ggraph li {
+.gchart li {
     list-style: none;
 }
 
-/* Gantt Graph Sidebar */
-.ggraph .ggraph-sidebar {
+/* Gantt Chart Sidebar */
+.gchart .gchart-sidebar {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -29,7 +29,7 @@
     z-index: 2;
 }
 
-.ggraph .ggraph-sidebar:before {
+.gchart .gchart-sidebar:before {
     position: absolute;
     right: -7px;
     pointer-events: none;
@@ -40,21 +40,21 @@
     z-index: 3;
 }
 
-.ggraph .ggraph-sidebar .lbls-group {
+.gchart .gchart-sidebar .lbls-group {
     border-top: 1px solid #DDDDDD;
 }
 
-.ggraph .ggraph-sidebar .lbls-group .lbls {
+.gchart .gchart-sidebar .lbls-group .lbls {
     width: 50%;
     float: left;
 }
 
-.ggraph .ggraph-sidebar .lbls-group .lbls .lbls-serie {
+.gchart .gchart-sidebar .lbls-group .lbls .lbls-serie {
     border-bottom: 1px solid #E1E1E1;
 }
 
-.ggraph .ggraph-sidebar .lbls-group .lbls strong,
-.ggraph .ggraph-sidebar .lbls-group .lbls-serie strong {
+.gchart .gchart-sidebar .lbls-group .lbls strong,
+.gchart .gchart-sidebar .lbls-group .lbls-serie strong {
     display: block;
     padding: 0 20px;
     color: #484A4D;
@@ -67,7 +67,7 @@
 }
 
 /* data section */
-.ggraph-sc {
+.gchart-sc {
     position: relative;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -76,18 +76,18 @@
     white-space: nowrap;
 }
 
-/* Gantt Graph Section Header */
-header .ggraph-sc-ds,
-header .ggraph-sc-ms {
+/* Gantt Chart Section Header */
+header .gchart-sc-ds,
+header .gchart-sc-ms {
     overflow: hidden;
 }
 
-header .ggraph-sc-m {
+header .gchart-sc-m {
     float: left;
     text-align: center;
 }
 
-header .ggraph-sc-m strong {
+header .gchart-sc-m strong {
     display: block;
     border-right: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
@@ -97,24 +97,24 @@ header .ggraph-sc-m strong {
     height: {VALUE_HEIGHT}px;
 }
 
-.ggraph-sc-ds .ggraph-sc-d {
+.gchart-sc-ds .gchart-sc-d {
     float: left;
     height: {VALUE_HEIGHT}px;
     width: {VALUE_WIDTH}px;
 }
 
-.ggraph-sc-ds .ggraph-sc-d span {
+.gchart-sc-ds .gchart-sc-d span {
     text-indent: 0;
     text-align: center;
     font-size: 11px;
     line-height: {VALUE_LINE_HEIGHT}px;
 }
 
-.ggraph-sc-ds .ggraph-sc-d .today span {
+.gchart-sc-ds .gchart-sc-d .today span {
     color: white;
 }
 
-.ggraph-sc-d span {
+.gchart-sc-d span {
     display: block;
     border-right: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
@@ -123,21 +123,21 @@ header .ggraph-sc-m strong {
     color: #484A4D;
 }
 
-.ggraph-sc-d.weekend span {
+.gchart-sc-d.weekend span {
     background: #E0E0E0;
 }
 
-/* Gantt Graph Section Items */
-.ggraph-sc-item {
+/* Gantt Chart Section Items */
+.gchart-sc-item {
     position: relative;
 }
 
-.ggraph-sc-item .ggraph-sc-ds .ggraph-sc-d {
+.gchart-sc-item .gchart-sc-ds .gchart-sc-d {
     border-top: 1px solid #DDDDDD;
 }
 
-/* Gantt Graph Block */
-.ggraph-sc-blk {
+/* Gantt Chart Block */
+.gchart-sc-blk {
     background: #268bd2;
     position: absolute;
     top: 0;
@@ -147,7 +147,7 @@ header .ggraph-sc-m strong {
     opacity: .8;
 }
 
-.ggraph-sc-blk-lbl {
+.gchart-sc-blk-lbl {
     display: block;
     cursor: pointer;
     color: white;
@@ -157,12 +157,12 @@ header .ggraph-sc-m strong {
     line-height: {VALUE_BLOCK_LINE_HEIGHT}px;
 }
 
-.ggraph-sc-blk.conflict {
+.gchart-sc-blk.conflict {
     background: {COLOR_CONFLICT};
 }
 
-/* Gantt Graph Time */
-.ggraph .time {
+/* Gantt Chart Time */
+.gchart .time {
     border: 2px solid #1DA7A9;
     bottom: 0;
     position: absolute;
@@ -173,7 +173,7 @@ header .ggraph-sc-m strong {
     opacity: 0.7;
     z-index: 1;
 }
-.ggraph .time:before {
+.gchart .time:before {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid #1DA7A9;
@@ -184,42 +184,42 @@ header .ggraph-sc-m strong {
 }
 
 /* Legend */
-.ggraph.ggraph-legend {
+.gchart.gchart-legend {
     padding: 10px 10px 0px 10px;
 }
 
-.ggraph-lg-items,
-.ggraph-lg-item {
+.gchart-lg-items,
+.gchart-lg-item {
     position: relative;
     float: left;
 }
 
-.ggraph-lg-item.color {
+.gchart-lg-item.color {
     background: #E0E0E0;
     border: 1px solid #DDDDDD;
     height: {VALUE_HEIGHT}px;
     width: {VALUE_WIDTH}px;
 }
 
-.ggraph-lg-item.description {
+.gchart-lg-item.description {
     padding: 0px 10px;
     margin: 0px 10px 10px 0px;
     border: 1px solid #DDDDDD;
     height: {VALUE_HEIGHT}px;
 }
 
-.ggraph-lg-items .ggraph-lg-item {
+.gchart-lg-items .gchart-lg-item {
     float: left;
 }
 
-.ggraph-lg-items .ggraph-lg-item span {
+.gchart-lg-items .gchart-lg-item span {
     text-indent: 0;
     text-align: center;
     font-size: 11px;
     line-height: {VALUE_LINE_HEIGHT}px;
 }
 
-.ggraph-lg-item span {
+.gchart-lg-item span {
     display: block;
     text-indent: -12000px;
     font-weight: bold;

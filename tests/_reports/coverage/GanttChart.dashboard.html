@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /home/thiago/Projetos/Particular/particular_gantt/example</title>
+  <title>Dashboard for /home/thiago/Projetos/Particular/particular_gantt/GanttChart</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
      <div class="span12">
       <ul class="breadcrumb">
         <li><a href="index.html">/home/thiago/Projetos/Particular/particular_gantt</a> <span class="divider">/</span></li>
-        <li><a href="example.html">example</a></li>
+        <li><a href="GanttChart.html">GanttChart</a></li>
         <li class="active">(Dashboard)</li>
 
       </ul>
@@ -41,12 +41,17 @@
     <div class="span6">
      <h2>Top Project Risks</h2>
      <ul>
+              <li><a href="GanttChart_GanttChart.php.html#12">GanttChart</a> (84)</li>
 
      </ul>
     </div>
     <div class="span6">
      <h2>Least Tested Methods</h2>
      <ul>
+              <li><a href="GanttChart_GanttChart.php.html#443">GanttChart::searchInArray</a> (83%)</li>
+              <li><a href="GanttChart_GanttChart.php.html#369">GanttChart::generateLabels</a> (83%)</li>
+              <li><a href="GanttChart_GanttChart.php.html#333">GanttChart::checkConflictEvents</a> (96%)</li>
+              <li><a href="GanttChart_GanttChart.php.html#461">GanttChart::render</a> (99%)</li>
 
      </ul>
     </div>
@@ -82,7 +87,7 @@ $(document).ready(function() {
    labels: {style: {fontSize: '8px'}},
   },
   series: [{
-   data: [0,0,0,0,0,0,0,0,0,0,0,0]
+   data: [0,0,0,0,0,0,0,0,0,0,1,0]
   }],
  });
 
@@ -108,7 +113,7 @@ $(document).ready(function() {
    }
   },
   series: [{
-   data: [],
+   data: [[96.677740863787,84,"<a href=\"GanttChart_GanttChart.php.html#12\">GanttChart<\/a>"]],
    marker: {
     symbol: 'diamond'
    }

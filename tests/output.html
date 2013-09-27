@@ -1,13 +1,13 @@
 <style  type="text/css">
-/* Gantt Graph */
-.ggraph {
+/* Gantt Chart */
+.gchart {
     position: relative;
     overflow: hidden;
     background: #F6F6F6;
     border-radius: 10px;
 }
 
-.ggraph * {
+.gchart * {
     font-size: 12px;
     font-weight: normal;
     font-family: Arial; margin : 0;
@@ -15,12 +15,12 @@
     margin: 0;
 }
 
-.ggraph li {
+.gchart li {
     list-style: none;
 }
 
-/* Gantt Graph Sidebar */
-.ggraph .ggraph-sidebar {
+/* Gantt Chart Sidebar */
+.gchart .gchart-sidebar {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -30,7 +30,7 @@
     z-index: 2;
 }
 
-.ggraph .ggraph-sidebar:before {
+.gchart .gchart-sidebar:before {
     position: absolute;
     right: -7px;
     pointer-events: none;
@@ -41,21 +41,21 @@
     z-index: 3;
 }
 
-.ggraph .ggraph-sidebar .lbls-group {
+.gchart .gchart-sidebar .lbls-group {
     border-top: 1px solid #DDDDDD;
 }
 
-.ggraph .ggraph-sidebar .lbls-group .lbls {
+.gchart .gchart-sidebar .lbls-group .lbls {
     width: 50%;
     float: left;
 }
 
-.ggraph .ggraph-sidebar .lbls-group .lbls .lbls-serie {
+.gchart .gchart-sidebar .lbls-group .lbls .lbls-serie {
     border-bottom: 1px solid #E1E1E1;
 }
 
-.ggraph .ggraph-sidebar .lbls-group .lbls strong,
-.ggraph .ggraph-sidebar .lbls-group .lbls-serie strong {
+.gchart .gchart-sidebar .lbls-group .lbls strong,
+.gchart .gchart-sidebar .lbls-group .lbls-serie strong {
     display: block;
     padding: 0 20px;
     color: #484A4D;
@@ -68,7 +68,7 @@
 }
 
 /* data section */
-.ggraph-sc {
+.gchart-sc {
     position: relative;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -77,18 +77,18 @@
     white-space: nowrap;
 }
 
-/* Gantt Graph Section Header */
-header .ggraph-sc-ds,
-header .ggraph-sc-ms {
+/* Gantt Chart Section Header */
+header .gchart-sc-ds,
+header .gchart-sc-ms {
     overflow: hidden;
 }
 
-header .ggraph-sc-m {
+header .gchart-sc-m {
     float: left;
     text-align: center;
 }
 
-header .ggraph-sc-m strong {
+header .gchart-sc-m strong {
     display: block;
     border-right: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
@@ -98,24 +98,24 @@ header .ggraph-sc-m strong {
     height: 25px;
 }
 
-.ggraph-sc-ds .ggraph-sc-d {
+.gchart-sc-ds .gchart-sc-d {
     float: left;
     height: 25px;
     width: 25px;
 }
 
-.ggraph-sc-ds .ggraph-sc-d span {
+.gchart-sc-ds .gchart-sc-d span {
     text-indent: 0;
     text-align: center;
     font-size: 11px;
     line-height: 25px;
 }
 
-.ggraph-sc-ds .ggraph-sc-d .today span {
+.gchart-sc-ds .gchart-sc-d .today span {
     color: white;
 }
 
-.ggraph-sc-d span {
+.gchart-sc-d span {
     display: block;
     border-right: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
@@ -124,21 +124,21 @@ header .ggraph-sc-m strong {
     color: #484A4D;
 }
 
-.ggraph-sc-d.weekend span {
+.gchart-sc-d.weekend span {
     background: #E0E0E0;
 }
 
-/* Gantt Graph Section Items */
-.ggraph-sc-item {
+/* Gantt Chart Section Items */
+.gchart-sc-item {
     position: relative;
 }
 
-.ggraph-sc-item .ggraph-sc-ds .ggraph-sc-d {
+.gchart-sc-item .gchart-sc-ds .gchart-sc-d {
     border-top: 1px solid #DDDDDD;
 }
 
-/* Gantt Graph Block */
-.ggraph-sc-blk {
+/* Gantt Chart Block */
+.gchart-sc-blk {
     background: #268bd2;
     position: absolute;
     top: 0;
@@ -148,7 +148,7 @@ header .ggraph-sc-m strong {
     opacity: .8;
 }
 
-.ggraph-sc-blk-lbl {
+.gchart-sc-blk-lbl {
     display: block;
     cursor: pointer;
     color: white;
@@ -158,12 +158,12 @@ header .ggraph-sc-m strong {
     line-height: 20px;
 }
 
-.ggraph-sc-blk.conflict {
+.gchart-sc-blk.conflict {
     background: #980000;
 }
 
-/* Gantt Graph Time */
-.ggraph .time {
+/* Gantt Chart Time */
+.gchart .time {
     border: 2px solid #1DA7A9;
     bottom: 0;
     position: absolute;
@@ -174,7 +174,7 @@ header .ggraph-sc-m strong {
     opacity: 0.7;
     z-index: 1;
 }
-.ggraph .time:before {
+.gchart .time:before {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid #1DA7A9;
@@ -185,42 +185,42 @@ header .ggraph-sc-m strong {
 }
 
 /* Legend */
-.ggraph.ggraph-legend {
+.gchart.gchart-legend {
     padding: 10px 10px 0px 10px;
 }
 
-.ggraph-lg-items,
-.ggraph-lg-item {
+.gchart-lg-items,
+.gchart-lg-item {
     position: relative;
     float: left;
 }
 
-.ggraph-lg-item.color {
+.gchart-lg-item.color {
     background: #E0E0E0;
     border: 1px solid #DDDDDD;
     height: 25px;
     width: 25px;
 }
 
-.ggraph-lg-item.description {
+.gchart-lg-item.description {
     padding: 0px 10px;
     margin: 0px 10px 10px 0px;
     border: 1px solid #DDDDDD;
     height: 25px;
 }
 
-.ggraph-lg-items .ggraph-lg-item {
+.gchart-lg-items .gchart-lg-item {
     float: left;
 }
 
-.ggraph-lg-items .ggraph-lg-item span {
+.gchart-lg-items .gchart-lg-item span {
     text-indent: 0;
     text-align: center;
     font-size: 11px;
     line-height: 25px;
 }
 
-.ggraph-lg-item span {
+.gchart-lg-item span {
     display: block;
     text-indent: -12000px;
     font-weight: bold;
@@ -228,8 +228,8 @@ header .ggraph-sc-m strong {
 }
 
 </style>
-<div class="ggraph">
-<div class="ggraph-sidebar">
+<div class="gchart">
+<div class="gchart-sidebar">
 <ul class="lbls-group" style="margin-top: 76px">
 <li class="lbls" style="height: 26px">
 <strong>Activitie</strong>
@@ -242,286 +242,286 @@ header .ggraph-sc-m strong {
 </li>
 </ul>
 </div>
-<div class="ggraph-sc">
+<div class="gchart-sc">
 <header>
-<ul class="ggraph-sc-ms" style="width: 700px">
-<li class="ggraph-sc-m" style="width: 700px">
+<ul class="gchart-sc-ms" style="width: 700px">
+<li class="gchart-sc-m" style="width: 700px">
 <strong>September / 2013</strong>
 </li>
 </ul>
-<ul class="ggraph-sc-ds" style="width: 700px">
-<li class="ggraph-sc-d today">
+<ul class="gchart-sc-ds" style="width: 700px">
+<li class="gchart-sc-d today">
 <span>03</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>04</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>05</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>06</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>07</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>08</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>09</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>10</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>11</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>12</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>13</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>14</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>15</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>16</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>17</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>18</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>19</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>20</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>21</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>22</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>23</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>24</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>25</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>26</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>27</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>28</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>29</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>30</span>
 </li>
 </ul>
-<ul class="ggraph-sc-ds" style="width: 700px">
-<li class="ggraph-sc-d today">
+<ul class="gchart-sc-ds" style="width: 700px">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>W</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>F</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>M</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>W</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>F</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>M</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>W</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>F</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>M</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>W</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>T</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>F</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>S</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>M</span>
 </li>
 </ul>
-<ul class="ggraph-sc-items" style="width: 700px">
-<li class="ggraph-sc-item">
-<ul class="ggraph-sc-ds">
-<li class="ggraph-sc-d today">
+<ul class="gchart-sc-items" style="width: 700px">
+<li class="gchart-sc-item">
+<ul class="gchart-sc-ds">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d weekend">
+<li class="gchart-sc-d weekend">
 <span>&nbsp;</span>
 </li>
-<li class="ggraph-sc-d today">
+<li class="gchart-sc-d today">
 <span>&nbsp;</span>
 </li>
 </ul>
 <span title="Description x
 Conflict:
-Description z" class="ggraph-sc-blk  conflict" style=" left: 300px; width: 369px; height: 20px;">
-<strong class="ggraph-sc-blk-lbl">Task 1</strong>
+Description z" class="gchart-sc-blk  conflict" style=" left: 300px; width: 369px; height: 20px;">
+<strong class="gchart-sc-blk-lbl">Task 1</strong>
 </span>
 <span title="Description y
-" class="ggraph-sc-blk " style="background: #0000ff; left: 25px; width: 69px; height: 20px;">
-<strong class="ggraph-sc-blk-lbl">Task 2</strong>
+" class="gchart-sc-blk " style="background: #0000ff; left: 25px; width: 69px; height: 20px;">
+<strong class="gchart-sc-blk-lbl">Task 2</strong>
 </span>
 <span title="Description z
 Conflict:
-Description x" class="ggraph-sc-blk  conflict" style=" left: 350px; width: 194px; height: 20px;">
-<strong class="ggraph-sc-blk-lbl">Task 3 (Example Conflict)</strong>
+Description x" class="gchart-sc-blk  conflict" style=" left: 350px; width: 194px; height: 20px;">
+<strong class="gchart-sc-blk-lbl">Task 3 (Example Conflict)</strong>
 </span>
 </li>
 </ul>
@@ -529,4 +529,40 @@ Description x" class="ggraph-sc-blk  conflict" style=" left: 350px; width: 194px
 </header>
 </div>
 </div>
-<br><div class="ggraph ggraph-legend">  <div class="ggraph-lg-items"><ul class="ggraph-lg-items">  <li class="ggraph-lg-item color">    <span class="ggraph-sc-blk" style="background: #341030; width: 19px; height: 20px;">&nbsp;</span>  </li>  <li class="ggraph-lg-item description">    <span>Description x</span>  </li></ul><ul class="ggraph-lg-items">  <li class="ggraph-lg-item color">    <span class="ggraph-sc-blk" style="background: #0000ff; width: 19px; height: 20px;">&nbsp;</span>  </li>  <li class="ggraph-lg-item description">    <span>Description y</span>  </li></ul><ul class="ggraph-lg-items">  <li class="ggraph-lg-item color">    <span class="ggraph-sc-blk" style="background: ; width: 19px; height: 20px;">&nbsp;</span>  </li>  <li class="ggraph-lg-item description">    <span>Description z</span>  </li></ul><ul class="ggraph-lg-items">  <li class="ggraph-lg-item color">    <span class="ggraph-sc-blk" style="background: #980000; width: 19px; height: 20px;">&nbsp;</span>  </li>  <li class="ggraph-lg-item description">    <span>Conflict Detected</span>  </li></ul>  </div></div>
+<br>
+<div class="gchart gchart-legend">
+  <div class="gchart-lg-items">
+<ul class="gchart-lg-items">
+  <li class="gchart-lg-item color">
+    <span class="gchart-sc-blk" style="background: #341030; width: 19px; height: 20px;">&nbsp;</span>
+  </li>
+  <li class="gchart-lg-item description">
+    <span>Description x</span>
+  </li>
+</ul>
+<ul class="gchart-lg-items">
+  <li class="gchart-lg-item color">
+    <span class="gchart-sc-blk" style="background: #0000ff; width: 19px; height: 20px;">&nbsp;</span>
+  </li>
+  <li class="gchart-lg-item description">
+    <span>Description y</span>
+  </li>
+</ul>
+<ul class="gchart-lg-items">
+  <li class="gchart-lg-item color">
+    <span class="gchart-sc-blk" style="background: ; width: 19px; height: 20px;">&nbsp;</span>
+  </li>
+  <li class="gchart-lg-item description">
+    <span>Description z</span>
+  </li>
+</ul>
+<ul class="gchart-lg-items">
+  <li class="gchart-lg-item color">
+    <span class="gchart-sc-blk" style="background: #980000; width: 19px; height: 20px;">&nbsp;</span>
+  </li>
+  <li class="gchart-lg-item description">
+    <span>Conflict Detected</span>
+  </li>
+</ul>
+  </div>
+</div>
