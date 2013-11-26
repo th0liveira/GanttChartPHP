@@ -395,11 +395,13 @@ class GanttChart
             $date_time->setTimestamp( $current );
 
             $month =  ucfirst(strftime('%B', $date_time->getTimestamp())).' / '.strftime('%Y', $date_time->getTimestamp());
-
-            if( $index = $this->searchInArray( $month, $this->calendar_label ) ) {
-                $label = &$this->calendar_label[ $index ];
+            
+			$month_index = date('Ym', $date_time->getTimestamp() );
+            
+            if( isset( $this->calendar_label[ $month_index ] ) ) {
+                $label = &$this->calendar_label[ $month_index ];
             } else {
-                $label = &$this->calendar_label[];
+                $label = &$this->calendar_label[ $month_index ];
                 $label = array();
                 $label['month'] = $month;
                 $label['days']  = array();
@@ -429,7 +431,7 @@ class GanttChart
                 $this->total_days++;
             }
 
-        }
+        }        
     }
 
     /**
