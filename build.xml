@@ -78,7 +78,7 @@
 		<exec executable="phpmd">
 			<arg path="${basedir}" />
 			<arg value="text" />
-			<arg value="--exclude=${basedir}/vendor/,${basedir}/data/" />
+			<arg value="--exclude=${basedir}/tests/" />
 		</exec>
 	</target>
 
@@ -89,7 +89,7 @@
 			<arg value="xml" />
 			<arg value="--reportfile" />
 			<arg value="${basedir}/build/logs/pmd.xml" />
-			<arg value="--exclude=${basedir}/vendor/,${basedir}/data/" />
+			<arg value="--exclude=${basedir}/tests/" />
 		</exec>
 	</target>
 
@@ -109,7 +109,7 @@
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
 			<arg value="--standard=PSR,PSR1,PSR2" />
-			<arg value="--exclude=${basedir}/vendor/,${basedir}/data/" />
+			<arg value="--exclude=${basedir}/tests/" />
 			<arg path="${basedir}" />
 		</exec>
 	</target>
@@ -118,7 +118,7 @@
 		<exec executable="phpcpd">
 			<arg value="--log-pmd" />
 			<arg value="${basedir}/build/logs/pmd-cpd.xml" />
-			<arg value="--ignore=${basedir}/vendor/" />
+			<arg value="--ignore=${basedir}/tests/" />
 			<arg path="${basedir}" />
 		</exec>
 	</target>
@@ -130,7 +130,7 @@
 	</target>
 
 	<target name="phpunit" description="Run unit tests with PHPUnit">
-		<exec executable="phpunit" failonerror="true">
+		<exec executable="phpunit">
             <arg line="-c" />
 		    <arg value="${basedir}/tests/phpunit.xml" />
 		</exec>
@@ -144,7 +144,7 @@
 			<arg path="${basedir}" />
 			<arg value="--output" />
 			<arg path="${basedir}/build/code-browser" />
-			<arg value="--exclude=${basedir}/vendor/,${basedir}/data/" />
+			<arg value="--exclude=${basedir}/tests/" />
 		</exec>
 	</target>
 </project>
