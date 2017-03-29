@@ -23,91 +23,58 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace GanttChartPHP\Data;
-
-use GanttChartPHP\Helper\Color;
+namespace GanttChartPHP\Helper;
 
 /**
- * Class Bar
+ * Class Color
  *
  * @category    Gantt Chart PHP
- * @package     GanttChartPHP\Data
- * @subpackage  Bar
+ * @package     GanttChartPHP\Helper
+ * @subpackage  Color
  * @author      Thiago H Oliveira <thiago@tholiveira.com.br>
- *
- * Methods:
- * @method  string      getLabel()                      Get Bar  Label
- * @method  Bar         setLabel(string $value)         Set Bar  Label
- * @method  string      getDescription()                Get Bar  Description
- * @method  Bar         setDescription(string $value)   Set Bar  Description
  */
-class Bar 
-    extends AbstractData
+class Color
 {
     /**
-     * Element Label
+     * Color Default
      * @const string
      */
-    const ELEMENT_LABEL = 'label';
+    const DEFAULT_COLOR = '#C9C9C9';
 
     /**
-     * Element Description
+     * Color Format
      * @const string
      */
-    const ELEMENT_DESCRIPTION = 'description';
+    const COLOR_FORMAT = '#{HEX}';
 
     /**
-     * Element Start
-     * @const string
+     * Used colors
+     * @var array
      */
-    const ELEMENT_START = 'start';
+    protected static $usedColor = [];
 
     /**
-     * Element End
-     * @const string
-     */
-    const ELEMENT_END = 'end';
-
-    /**
-     * Element Color
-     * @const string
-     */
-    const ELEMENT_COLOR = 'color';
-
-    /**
-     * Bar constructor.
+     * Color constructor.
      */
     public function __construct()
     {
-        parent::__construct();
-        $this->setValue(self::ELEMENT_COLOR, Color::DEFAULT_COLOR);
+        self::$usedColor[self::DEFAULT_COLOR] = self::DEFAULT_COLOR;
     }
 
     /**
-     * Get Instance
+     * Generate Color
      *
-     * @param string $type
-     *
-     * @return null|AbstractData
+     * @return string
      */
-    protected function getInstance(string $type)
+    public function generateColor():string
     {
-        return null;
-    }
+        do {
+            $color = self::COLOR_FORMAT;
+            $hex = strtoupper(str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT));
+            $color = str_replace('{HEX}', $hex, $color);
+            self::$usedColor[$color] = $color;
+        } while (array_search($color, self::$usedColor) === false);
 
-    /**
-     * Get Available Properties
-     *
-     * @return array
-     */
-    protected function getAvailableProperties():array
-    {
-        return [
-            self::ELEMENT_LABEL,
-            self::ELEMENT_DESCRIPTION,
-            self::ELEMENT_START,
-            self::ELEMENT_END,
-            self::ELEMENT_COLOR,
-        ];
+        return $color;
     }
 }
